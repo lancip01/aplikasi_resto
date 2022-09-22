@@ -1,5 +1,6 @@
 <?php
 
+// use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/one', function () {
     return view('dashboard.dashboardmanager');
 });
+
+Route::get('/category', function () {
+    return view('category.add');
+});
+
+// Route::resource('categories','App\Http\Controllers\CategoryController');
+// Route::get('/one', function () {
+//     return view('dashboard.dashboardmanager');
+// });
+//route CRUD
