@@ -152,7 +152,9 @@
                         <thead>
                             <tr>
                                 <th scope="col-1">NO</th>
+                                <th scope="col-7">Nama Menu</th>
                                 <th scope="col-7">Category</th>
+                                <th scope="col-7">Harga</th>
                                 <th scope="col-2">Action</th>
                             </tr>
                         </thead>
@@ -181,7 +183,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add new Category</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Add new Menu</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -189,8 +191,23 @@
                                     <form action="/kategori" method="POST">
                                         @csrf
                                         <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Category Name</label>
+                                            <label for="exampleInputEmail1" class="form-label">Nama Menu</label>
                                             <input type="text" class="form-control" name="kategori"
+                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Category</label>
+                                            <select name="" id="" class="form-control">
+                                                <option selected></option>
+                                                @foreach ($category as $item)
+                                                <option value="{{$item->id}}">{{$item->category}}</option>
+                                                @endforeach
+
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="kategori"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                         <div class="modal-footer">
