@@ -1,29 +1,24 @@
 <?php
 
-// use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//* |---------------------------------------| Route Auth |---------------------------------------| //
 
-Route::get('/', function () {
+
+
+//* |---------------------------------------| Route Dashboard |---------------------------------------| //
+Route::get('/manager', function () {
     return view('dashboard.dashboardmanager');
 });
 
-Route::get('/category', function () {
-    return view('category.add');
-});
 
-// Route::resource('categories','App\Http\Controllers\CategoryController');
-// Route::get('/one', function () {
-//     return view('dashboard.dashboardmanager');
-// });
-//route CRUD
+//* |---------------------------------------| Route Kategori |---------------------------------------| //
+Route::get('/kategori', [CategoryController::class, 'index'])->name("kategori");
+Route::post('/kategori', [CategoryController::class, 'store']);
+Route::get('/kategori/{id}', [CategoryController::class, 'destroy']);
+
+
+//* |---------------------------------------| Route Menu |---------------------------------------| //
+Route::get('/menu', [MenuController::class, 'index'])->name("menu");
