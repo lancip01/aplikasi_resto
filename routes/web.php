@@ -22,3 +22,5 @@ Route::get('/kategori/{id}', [CategoryController::class, 'destroy']);
 
 //* |---------------------------------------| Route Menu |---------------------------------------| //
 Route::get('/menu', [MenuController::class, 'index'])->name("menu");
+Route::post('/menu', [MenuController::class, 'store']);
+Route::get('/menu{id}', [MenuController::class, 'destroy']);

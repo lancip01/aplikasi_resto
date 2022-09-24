@@ -22,4 +22,10 @@ class MenuController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function destroy($id){
+        $menu = Menu::find($id);
+        $menu->delete();
+        return redirect()->back();
+    }
 }

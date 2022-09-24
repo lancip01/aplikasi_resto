@@ -166,10 +166,10 @@
                                 <tr>
                                     <th scope="row" class="col-1">{{ $no++ }}</th>
                                     <td class="col-7">{{ $item->nama_menu }}</td>
-                                    <td class="col-7">{{ $item->kategori_id }}</td>
+                                    <td class="col-7">{{ $item->kategori->kategori }}</td>
                                     <td class="col-7">{{ $item->harga }}</td>
                                     <td class="col-2">
-                                        <a href="/kategori/{{ $item->id }}" class="btn btn-danger">delete</a>
+                                        <a href="/menu/{{ $item->id }}" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -188,26 +188,26 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/kategori" method="POST">
+                                    <form action="/menu" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Nama Menu</label>
-                                            <input type="text" class="form-control" name="kategori"
+                                            <input type="text" class="form-control" name="nama_menu"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Category</label>
-                                            <select name="" id="" class="form-control">
+                                            <select name="kategori_id" id="" class="form-control">
                                                 <option selected></option>
                                                 @foreach ($category as $item)
-                                                <option value="{{$item->id}}">{{$item->category}}</option>
+                                                <option value="{{$item->id}}">{{$item->kategori}}</option>
                                                 @endforeach
 
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Harga</label>
-                                            <input type="number" class="form-control" name="kategori"
+                                            <input type="number" class="form-control" name="harga"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp">
                                         </div>
                                         <div class="modal-footer">
